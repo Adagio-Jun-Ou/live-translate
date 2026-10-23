@@ -1,0 +1,30 @@
+[project]
+name = "live-translate"
+version = "0.1.0"
+description = "Real-time audio translation with browser subtitle overlay"
+requires-python = ">=3.10"
+dependencies = [
+    "faster-whisper>=1.0.0",
+    "sounddevice>=0.4.6",
+    "websockets>=12.0",
+    "webrtcvad>=2.0.10",
+    "numpy>=1.24.0",
+    "transformers>=4.36.0",
+    "sentencepiece>=0.1.99",
+    "uvicorn>=0.24.0",
+]
+
+[project.scripts]
+live-translate = "live_translate.app:main"
+
+[build-system]
+requires = ["setuptools>=68.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["."]
+
+[tool.pytest.ini_options]
+markers = [
+    "e2e: end-to-end tests that require external services",
+]
